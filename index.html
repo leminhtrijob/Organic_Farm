@@ -8,6 +8,31 @@
     </head>
 
     <body>
+        <!-- AUDIO & Nút bật/tắt nhạc -->
+        <audio id="music" loop>
+            <source src="music.mp3" type="audio/mpeg" />
+        </audio>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const music = document.getElementById("music");
+                const btn = document.getElementById("toggleMusic");
+
+                btn.addEventListener("click", () => {
+                    if (music.paused) {
+                        music
+                            .play()
+                            .then(() => (btn.textContent = "🔇 Tắt nhạc"))
+                            .catch((err) =>
+                                console.log("Browser chặn autoplay:", err),
+                            );
+                    } else {
+                        music.pause();
+                        btn.textContent = "🔈 Bật nhạc";
+                    }
+                });
+            });
+        </script>
         <div class="main">
             <div class="menu-top">
                 <div class="top-left">
@@ -30,6 +55,8 @@
                             placeholder="Nhập từ khóa tìm kiếm..."
                         />
                     </div>
+                       <!-- Nút nhạc đẹp -->
+                <button id="toggleMusic" class="music-btn">🔈 Bật nhạc</button>
                 </div>
             </div>
 
@@ -48,7 +75,7 @@
                 </p>
                 <div class="wrap">
                     <div>
-                        <img src="./images/intro.jpg" />
+                        <img src="./images/gpt.png" />
                         <h3>Trang trại hữu cơ</h3>
                         <p>
                             Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon
@@ -57,7 +84,7 @@
                     </div>
 
                     <div>
-                        <img src="./images/intro.jpg" />
+                        <img src="./images/gpt.png" />
                         <h3>Trang trại hữu cơ</h3>
                         <p>
                             Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon
@@ -66,7 +93,7 @@
                     </div>
 
                     <div>
-                        <img src="./images/intro.jpg" />
+                        <img src="./images/gpt.png" />
                         <h3>Trang trại hữu cơ</h3>
                         <p>
                             Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon
@@ -75,7 +102,7 @@
                     </div>
 
                     <div>
-                        <img src="./images/intro.jpg" />
+                        <img src="./images/gpt.png" />
                         <h3>Trang trại hữu cơ</h3>
                         <p>
                             Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon
@@ -97,7 +124,7 @@
                     <li>Các loại hạt</li>
                 </ul>
                 <div class="shop">
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/product.jpg" />
                         <div>
                             <h4>Súp lơ trắng</h4>
@@ -108,7 +135,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/bưởi da xanh.png" />
                         <div>
                             <h4>Bưởi da xanh Giồng Trôm</h4>
@@ -119,7 +146,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/hat-de.jpg" />
                         <div>
                             <h4>Hạt dẻ tươi</h4>
@@ -130,7 +157,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/nho.jpg" />
                         <div>
                             <h4>Nho đỏ không hạt</h4>
@@ -141,7 +168,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/nhãn.png" />
                         <div>
                             <h4>Nhãn xuồng cơm vàng</h4>
@@ -152,7 +179,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/xoai-cat-hoa-loc.jpg" />
                         <div>
                             <h4>Xoài cát Hòa Lộc</h4>
@@ -163,7 +190,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/vu_sua_lo_ren.jpg" />
                         <div>
                             <h4>Vú sữa Lò Rèn</h4>
@@ -174,7 +201,7 @@
                         </div>
                     </div>
 
-                    <div class="rau">
+                    <div class="rau"  data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu">
                         <img src="./images/toi-ly-son.jpg" />
                         <div>
                             <h4>Tỏi Lý Sơn</h4>
@@ -317,5 +344,109 @@
                 </p>
             </div>
         </div>
+
+        <style>
+            .emoji-fall {
+                position: fixed;
+                top: -100px;
+                pointer-events: none;
+                z-index: 9999;
+                font-size: 60px; /* to dễ nhìn */
+                opacity: 1;
+                transform-origin: center;
+                transition: opacity 0.5s linear; /* fade out mượt */
+            }
+        </style>
+
+        <script>
+            const emojis = [
+                "🍎",
+                "🍊",
+                "🍐",
+                "🥦",
+                "🥕",
+                "🌽",
+                "🍆",
+                "🫑",
+                "🍅",
+            ];
+
+            function createEmoji() {
+                const emoji = document.createElement("div");
+                emoji.classList.add("emoji-fall");
+                emoji.textContent =
+                    emojis[Math.floor(Math.random() * emojis.length)];
+
+                // kích thước
+                const size = 50 + Math.random() * 30; // 50–80px
+                emoji.style.fontSize = size + "px";
+
+                // vị trí ngang random
+                const startX = Math.random() * (window.innerWidth - size);
+                emoji.style.left = startX + "px";
+                emoji.style.top = "-100px";
+
+                document.body.appendChild(emoji);
+
+                const speed = 1 + Math.random() * 1; // tốc độ rơi chậm
+                let rotate = Math.random() * 30 - 15; // xoay nhẹ
+                const rotateSpeed = (Math.random() - 0.5) * 0.5; // xoay chậm
+
+                let swayOffset = 0;
+                const swaySpeed = Math.random() * 0.05 + 0.02; // phất nhẹ sang hai bên
+
+                function fall() {
+                    let top = parseFloat(emoji.style.top) || 0;
+
+                    top += speed;
+                    rotate += rotateSpeed;
+                    swayOffset += swaySpeed;
+
+                    // phất nhẹ qua lại
+                    const sway = Math.sin(swayOffset * 2 * Math.PI) * 20;
+
+                    emoji.style.top = top + "px";
+                    emoji.style.left = startX + sway + "px";
+                    emoji.style.transform = `rotate(${rotate}deg)`;
+
+                    // mờ dần khi gần đáy
+                    const fadeStart = window.innerHeight * 0.7;
+                    if (top > fadeStart) {
+                        emoji.style.opacity =
+                            1 -
+                            (top - fadeStart) /
+                                (window.innerHeight - fadeStart);
+                    }
+
+                    // khi ra khỏi màn hình, remove
+                    if (top > window.innerHeight) {
+                        emoji.remove();
+                    } else {
+                        requestAnimationFrame(fall);
+                    }
+                }
+
+                fall();
+            }
+
+            // tạo emoji đều, không rối mắt
+            setInterval(createEmoji, 600);
+        </script>
+
+               <!-- Thẻ audio để phát khi hover -->
+        <audio id="laugh-sound">
+            <source src="laugh.mp3" type="audio/mpeg" />
+        </audio>
+
+        <script>
+            // Khi hover vào sản phẩm, phát âm thanh cười
+            const laugh = document.getElementById("laugh-sound");
+            document.querySelectorAll(".rau").forEach((prod) => {
+                prod.addEventListener("mouseenter", () => {
+                    laugh.currentTime = 0; // phát lại từ đầu nếu hover liên tục
+                    laugh.play();
+                });
+            });
+        </script>
     </body>
 </html>
